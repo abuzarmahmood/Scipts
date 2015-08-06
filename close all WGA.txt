@@ -1,0 +1,4 @@
+macro "Close All[F1]" { 
+run("Close All");
+run("Clear Results");
+roiManager("Delete");}

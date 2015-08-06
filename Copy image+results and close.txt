@@ -1,0 +1,9 @@
+macro "Copy Image and Close[F1]" { 
+imp2 = imp.flatten();
+IJ.run(imp, "Copy to System", "");
+run("Close All");
+roiManager("Delete");}
+
+macro "Copy Results and Close[F2]" {
+String.copyResults();
+run("Clear Results");}

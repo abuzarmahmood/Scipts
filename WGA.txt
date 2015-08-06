@@ -1,0 +1,23 @@
+macro "Split Channels [f1]"
+{
+run("Clear Results");
+run("Set Scale...", "distance=0 known=0 pixel=1 unit=pixel");
+run("Set Measurements...", "area limit redirect=None decimal=3");
+rename("Image");
+run("Split Channels");
+selectWindow("Image (blue)");
+close();
+selectWindow("Image (green)");
+close();
+selectWindow("Image (red)");
+roiManager("Show All");
+}
+
+macro "Close and Clear [f2]"
+{
+roiManager("Measure");
+run("Flatten");
+run("Copy to System");
+run("Close All");
+roiManager("Delete");
+}

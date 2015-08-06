@@ -1,0 +1,28 @@
+macro "Open and split [f1]"{
+run("Clear Results");
+rename("Green.tif");
+run("Split Channels");
+close("Green.tif (blue)");
+close("Green.tif (red)");
+selectWindow("Green.tif (green)");
+run("Add to Manager");}
+
+macro "Add ROI's [f2]"{
+roiManager("Select", 1);
+roiManager("Show All");
+roiManager("Deselect");
+//setTool("freehand");
+}
+
+macro "Measure and Close [f3]"{
+run("Set Measurements...", "area mean integrated limit redirect=None decimal=3");
+run("Set Scale...", "distance=0 known=0 pixel=1 unit=pixel");
+roiManager("Measure");
+run("Flatten");
+run("Copy to System");
+run("Close All");
+
+roiManager("Deselect");
+roiManager("Delete");
+
+}

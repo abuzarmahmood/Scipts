@@ -1,0 +1,6 @@
+macro ("Close and Clear [f2]")
+{
+select ("Image (red)");
+close();
+roiManager("Delete");
+}
